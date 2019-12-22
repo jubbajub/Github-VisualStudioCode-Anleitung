@@ -1,0 +1,27 @@
+GUTE ANLEITUNG:
+ Github einrichten in VisualStudio Code
+-https://www.youtube.com/watch?v=Fk12ELJ9Bww
+
+
+1. VisualStudio: Neues Projekt erstellen (Arbeitsbereich öffnen)
+1.1 Termnal öffnen (Strg+ö)
+
+2. Github: New Repository "git-test"
+URL: https://github.com/jubbajub/git-test.git
+
+3. INITIALISIERUNGS BEFEHLE von GITHUB KOPIEREN und im TERMINAL Ausführen:
+    echo "# git-test" >> README.md
+    git init
+    git add README.md
+    git commit -m "first commit"
+    git remote add origin https://github.com/jubbajub/git-test.git
+    git push -u origin master
+
+4. ÄNDERUNGEN IN DEN DATEIEN DURCHFÜHREN
+
+5. COMMIT NACHRICHT eingebn Strg+ENTER
+
+6.Änderungen Synchronisiseren ( git push git-test master:master )
+
+
+
