@@ -3,7 +3,7 @@ GUTE ANLEITUNG:
 -https://www.youtube.com/watch?v=Fk12ELJ9Bww
 
 
-1. VisualStudio: Neues Projekt erstellen (Arbeitsbereich öffnen)
+1. VisualStudio: Neues Projekt erstellen "git-test" (Arbeitsbereich öffnen)
 1.1 Termnal öffnen (Strg+ö)
 
 2. Github: New Repository "git-test"
