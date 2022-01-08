@@ -119,19 +119,24 @@ Hosting URL: https://ionic-projekte.web.app
 4.1 UPGRADE IONIC
 >ionic info
 
-4.2 UPGRADE Angular
 
-4.3 UPGRADE npm
+4.2 UPGRADE npm
 >npm -v
 >npm i -g npm
 
-4.4 UPGRADE NodeJS
+4.3 UPGRADE NodeJS
 >node -v
 
 Installation von MSI-Paket in Windows hier runterladen: https://nodejs.org/en/download/ und einfach installieren
 
-4.5 UPDATE VS CODE
+4.4 UPDATE VS CODE
 -Unter Einstelllungen -->"nach Aktualisiserung suchen..." klicken
 
+4.5 UPGRADE Angular
+
+ACHTUNG: Versions UPDATE siehe 2.2 bzw. hier https://update.angular.io/ 
+
+>ng --version
+>npm install -g @angular/cli
 
 
