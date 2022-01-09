@@ -18,6 +18,11 @@ GUTE ANLEITUNG:
 -Neues Repository erstellen (ohne Readme und gitignore) -->URL: https://github.com/jubbajub/Ionic_Blank.git
 
 1.2.1. VSC: INITIALISIERUNGS BEFEHLE von GITHUB KOPIEREN und im TERMINAL Ausführen:
+
+	git remote add origin https://github.com/jubbajub/Ionic_Blank.git
+	git branch -M main
+	git push -u origin main
+
 	echo "# Ionic_Blank" >> README.md
 	git init
 	git add README.md
@@ -71,13 +76,20 @@ https://devdactic.com/host-ionic-website-firebase/
 3.1 VSC:  
 im Entwicklungsmodus
 >ionic build --release
+
 oder im Produktionsmodus mit --prod flag, aber dann muss "app/environments/environment.prod.ts" mit Firebasedaten gefüllt werden.
 >ionic build --prod --release
 
 3.2. Firebase Hosting
 >npm install -g firebase-tools
+
+
+>firebase logout (Wichtig: Dadurch werde Anmeldefehler umgangen)
+
 >firebase login
 >firebase init (Das folgende ERgebnis kommt nach dem firebase init Befehl!)
+
+Nach den ganzen Eingaben nur noch ....
 >firebase deploy (Hiernach erhält man seinen Link ->Das wars!
 
 -->WEITERE ANGABEN UND ERGEBNIS
@@ -115,26 +127,32 @@ i  Writing project information to .firebaserc...
 Project Console: https://console.firebase.google.com/project/ionic-projekte/overview
 Hosting URL: https://ionic-projekte.web.app
 
-4. UPGRADE 
-4.1 UPGRADE IONIC
->ionic info
+4. UPGRADE  (WICHTIG IMMER als ADMINISTRATOR)
 
-
-4.2 UPGRADE npm
+4.1 UPGRADE npm 
 >npm -v
->npm i -g npm
+>npm install -g npm (um npm auf den neusten Stand zu bringen)
 
-4.3 UPGRADE NodeJS
+anschließend
+>npm update -g ( um alle anderen Packages upzudaten)
+
+
+4.2 UPGRADE NodeJS
 >node -v
 
 Installation von MSI-Paket in Windows hier runterladen: https://nodejs.org/en/download/ und einfach installieren
+
+4.3 UPGRADE IONIC -->https://ionicframework.com/docs/intro/upgrading-to-ionic-6
+>ionic info
+
+>npm install @ionic/angular@6
 
 4.4 UPDATE VS CODE
 -Unter Einstelllungen -->"nach Aktualisiserung suchen..." klicken
 
 4.5 UPGRADE Angular
 
-ACHTUNG: Versions UPDATE siehe 2.2 bzw. hier https://update.angular.io/ 
+ACHTUNG: Versions UPDATE immer in einer SChritten durchführen siehe 2.2 oben  bzw. hier https://update.angular.io/ 
 
 >ng --version
 >npm install -g @angular/cli
