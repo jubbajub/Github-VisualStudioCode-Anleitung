@@ -24,6 +24,8 @@ GUTE ANLEITUNG:
 	git branch -M main
 	git push -u origin main
 
+	#### ODER ### 
+
 	echo "# Ionic_Blank" >> README.md
 	git init
 	git add README.md
