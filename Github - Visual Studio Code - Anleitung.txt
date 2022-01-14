@@ -210,6 +210,8 @@ https://code.visualstudio.com/docs/nodejs/angular-tutorial
 in VSC F5 drücken
 
 6. FIREBASE IONIC HINZUFÜGEN
+6.0. https://github.com/angular/angularfire/blob/master/docs/install-and-setup.md
+
 6.1 TUTORIAL https://ionicthemes.com/tutorials/add-a-firebase-database-to-your-ionic-app
 
 6.1.1 VORBEREITUNG
