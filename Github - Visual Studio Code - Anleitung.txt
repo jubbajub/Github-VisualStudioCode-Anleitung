@@ -6,6 +6,8 @@ GUTE ANLEITUNG:
 2. GITHUB CLONE WIEDERHERSTELLEN
 3. FIREBASE HOSTING (FIREBASE DEPLOY)
 4. UPGRADE 
+5. VS CODE DEBUGGING
+6. FIREBASE IONIC HINZUFÜGEN
 
 
 1. NEUES PROJEKT ERSTELLEN UND MIT GIT VERBINDEN
@@ -20,7 +22,7 @@ GUTE ANLEITUNG:
 
 1.2.1. VSC: INITIALISIERUNGS BEFEHLE von GITHUB KOPIEREN und im TERMINAL Ausführen:
 
-	git remote add origin https://github.com/jubbajub/Ionic_Blank.git
+	git remote add origin https://github.com/jubbajub/tutorial-devdactic-firebase-crud.git
 	git branch -M main
 	git push -u origin main
 
@@ -72,6 +74,13 @@ GUTE ANLEITUNG:
 -->Änderung in Git commiten
 
 2.2.4 >ionic serve sollte jetzt funktionieren, falls nicht dann eventuell umprogrammieren, da einige Befehle sich geändert haben ( zb. Routing etc.)
+
+2.3 GITHUB CLI installieren und Repository in CLI erstellen
+2.3.1 in der neuesten Realease die MSI dowloaden und Windows installieren 
+https://github.com/cli/cli/releases/tag/v2.4.0
+
+2.3.2 FUNKTIONIERT NICHT:
+>gh repo create tutorial-devdactic-firebase-crud --private --source=. --remote=upstream
 
 3. FIREBASE HOSTING (FIREBASE DEPLOY)
 https://devdactic.com/host-ionic-website-firebase/
@@ -159,5 +168,108 @@ ACHTUNG: Versions UPDATE immer in einer SChritten durchführen siehe 2.2 oben  b
 
 >ng --version
 >npm install -g @angular/cli
+
+
+5. VS CODE DEBUGGING
+5.1 Javascript Debugger installieren
+-VS Code -->Extensions (Strg+Umschalt+X): Javascript Debugger installieren
+
+5.2 Javascript Debugger einrichten
+siehe hier:
+https://code.visualstudio.com/docs/nodejs/angular-tutorial
+5.2.1 ANGULAR Konfiguration 
+	{
+	"version": "0.2.0",
+	"configurations": [
+		{
+		"type": "pwa-chrome",
+		"request": "launch",
+		"name": "Launch CHROME against localhost",
+		"url": "http://localhost:4200",
+		"webRoot": "${workspaceFolder}"
+		}
+	]
+	}
+
+5.2.2 IONIC Konfiguration 
+	{
+	"version": "0.2.0",
+	"configurations": [
+		{
+		"type": "pwa-chrome",
+		"request": "launch",
+		"name": "Launch CHROME against localhost",
+		"url": "http://localhost:8100",
+		"webRoot": "${workspaceFolder}"
+		}
+	]
+	}
+
+5.2.3 DEBUGGER Starten
+>ionic serve
+in VSC F5 drücken
+
+6. FIREBASE IONIC HINZUFÜGEN
+6.1 TUTORIAL https://ionicthemes.com/tutorials/add-a-firebase-database-to-your-ionic-app
+
+6.1.1 VORBEREITUNG
+>ionic start tutorial-ionicthemes-firebase-crud blank
+>cd .\tutorial-ionicthemes-firebase-crud
+>ng add @angular/fire
+
+//Test ob installation erfolgreich
+>ionic serve
+
+6.1.2 FIREBASE APP ERSTELLEN UND API-KEY KOPIEREN
+1. Project auswählen unter: https://console.firebase.google.com/project/ 
+2. "+ App hinzufügen" auswählen für "WWW"
+3. App-Nickname eingeben und "App registrieren" klicken
+4. Unter https://console.firebase.google.com/project/  Anwendung (App) suchen und unter Einstellungen (Zahnrad) nach Konfiguraation suchen:
+	const firebaseConfig = {
+	apiKey: "XXX",
+	authDomain: "sd-projects-6161.firebaseapp.com",
+	projectId: "sd-projects-6161",
+	storageBucket: "sd-projects-6161.appspot.com",
+	messagingSenderId: "490452213204",
+	appId: "1:490452213204:web:14c427c1ecddbfeabe0a41",
+	measurementId: "G-NGLQF2P9EN"
+	};
+5.unter "src\environments\environment.ts" die firebaseConfig einfügen
+6 src\app\app.module.ts:
+	import { NgModule } from '@angular/core';
+	import { BrowserModule } from '@angular/platform-browser';
+	import { RouteReuseStrategy } from '@angular/router';
+
+	import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+
+	import { AppComponent } from './app.component';
+	import { AppRoutingModule } from './app-routing.module';
+
+	//NEUE IMPORTS für FIRESTORE
+	import { ReactiveFormsModule } from '@angular/forms';
+	import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+	import { environment } from 'src/environments/environment';
+	import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+
+	@NgModule({
+	declarations: [AppComponent],
+	entryComponents: [],
+	imports: [
+		BrowserModule,
+		IonicModule.forRoot(),
+			AppRoutingModule,
+			ReactiveFormsModule,
+			provideFirebaseApp(() => initializeApp(environment.firebase)),
+			provideFirestore(() => getFirestore())
+	],
+	providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+	bootstrap: [AppComponent],
+	})
+	export class AppModule {}
+
+7. FIREBASE ist nun eingeriehctet, ab nun mit CRUD - Tutorial weiter machen!
+
+
+
 
 
